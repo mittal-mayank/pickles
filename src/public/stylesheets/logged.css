@@ -1,0 +1,9 @@
+#inp-comm-description {
+    min-height: unset;
+    height: 75px;
+}
+
+.div-author,
+.div-saves {
+    cursor: pointer;
+}

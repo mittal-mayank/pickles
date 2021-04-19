@@ -8,6 +8,7 @@ const {
     setTheme,
 } = require('../controllers/services');
 const { processAvatar } = require('../middlewares/uploads');
+const { exceptionHandler } = require('../variables');
 
 router.get(
     ['/', '/c/:name'],

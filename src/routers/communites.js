@@ -4,6 +4,7 @@ const {
     createCommunity,
 } = require('../controllers/communities');
 const { processBanner } = require('../middlewares/uploads');
+const { exceptionHandler } = require('../variables');
 
 router.get('/:name/posts', exceptionHandler(getCommunityPosts));
 

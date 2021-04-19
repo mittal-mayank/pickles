@@ -1,6 +1,7 @@
 const { User, Community } = require('../models');
 const { checkAndParse } = require('../validators/dataTypes');
 const { comparePosts } = require('../utils/program');
+const { POST_PAGE_LEN } = require('../variables');
 
 async function populateCommunityFeed(communityList, communityFeed, pageNo) {
     const postsPerComm = Math.ceil(

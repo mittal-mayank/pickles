@@ -1,5 +1,6 @@
 const { User, Community } = require('../models');
 const { checkAndParse } = require('../validators/dataTypes');
+const { POST_PAGE_LEN } = require('../variables');
 
 async function getCommunityPosts(req, res) {
     const name = req.params.name;

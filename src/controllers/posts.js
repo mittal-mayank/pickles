@@ -1,5 +1,6 @@
 const { User, Community, Post } = require('../models');
 const { checkAndParse } = require('../validators/dataTypes');
+const { POST_PAGE_LEN } = require('../variables');
 
 async function getRecentPosts(req, res) {
     const pageNo = req.query.pageNo;

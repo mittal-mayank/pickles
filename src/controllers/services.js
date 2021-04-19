@@ -2,6 +2,7 @@ const { User, Community, Post } = require('../models');
 const { checkAndParse } = require('../validators/dataTypes');
 const bcrypt = require('bcrypt');
 const { comparePosts } = require('../utils/program');
+const { POST_PAGE_LEN } = require('../variables');
 
 const SALT_ROUNDS = 5;
 const NUM_SHOWN_COMM = 10;

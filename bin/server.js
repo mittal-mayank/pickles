@@ -6,15 +6,6 @@ mongoose.connection
     .on('connected', async () => {
         console.log('Database connected');
 
-        global.exceptionHandler = (fn) => (req, res, next) => {
-            try {
-                fn(req, res, next);
-            } catch (err) {
-                next(err);
-            }
-        };
-        global.POST_PAGE_LEN = 10;
-
         const app = require('../src/app');
 
         const PORT = process.env.PORT || 3000;

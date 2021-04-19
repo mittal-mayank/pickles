@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // mongoose.set('debug', true);
 
-const DB_URL = process.env.MONGODB_URL || 'mongodb://localhost/sampleDB';
+const DB_URL = process.env.DB_URL || 'mongodb://localhost/sampleDB';
 
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,

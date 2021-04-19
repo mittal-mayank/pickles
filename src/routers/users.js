@@ -5,6 +5,7 @@ const {
     toggleFollowedCommunity,
 } = require('../controllers/users');
 const { authenticateAPI } = require('../middlewares/authentication');
+const { exceptionHandler } = require('../variables');
 
 router.get(
     '/communityFeed',

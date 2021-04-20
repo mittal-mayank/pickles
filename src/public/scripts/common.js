@@ -10,7 +10,7 @@ const notyf = new Notyf({
     ],
 });
 
-function notyfInfo() {
+function notyfFeatureComingSoon() {
     notyf.open({
         type: 'info',
         message: 'Feature coming soon!',
@@ -18,8 +18,7 @@ function notyfInfo() {
 }
 
 function openCommunity(event) {
-    location.hash = '#';
-    location.pathname = `/c/${event.target.innerText}`;
+    location.href = `/c/${event.target.innerText}`;
 }
 
 const bodyClassList = document.body.classList;

@@ -64,7 +64,7 @@
                                 </a>
                             </div>
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item" onclick="notyfInfo();">{{user.handle}}</a>
+                            <a href="#" class="dropdown-item" onclick="notyfFeatureComingSoon();">{{user.handle}}</a>
                             <div class="dropdown-divider"></div>
                             <div class="dropdown-content">
                                 <a href="#" class="btn" id="btn-logout">Log Out</a>
@@ -345,10 +345,10 @@
                             <div class="text-muted div-post-comm" onclick="openCommunity(event);">
                                 {{this.belongsTo.name}}
                             </div>
-                            <div class="div-author" onclick="notyfInfo();">
+                            <div class="div-author" onclick="notyfFeatureComingSoon();">
                                 {{this.author.handle}}
                             </div>
-                            <div class="div-saves" onclick="notyfInfo();">
+                            <div class="div-saves" onclick="notyfFeatureComingSoon();">
                                 <i class="far fa-heart mr-5"></i>
                                 {{this.numLikes}}
                             </div>
@@ -368,13 +368,13 @@
                             <div class="font-weight-medium font-size-18 mb-5">
                                 {{this.title}}
                             </div>
-                            <div class="text-muted">
+                            <div class="text-muted div-post-comm" onclick="openCommunity(event);">
                                 {{this.belongsTo.name}}
                             </div>
-                            <div class="div-author">
+                            <div class="div-author" onclick="notyfFeatureComingSoon();">
                                 {{this.author.handle}}
                             </div>
-                            <div class="div-saves">
+                            <div class="div-saves" onclick="notyfFeatureComingSoon();">
                                 <i class="far fa-heart mr-5"></i>
                                 {{this.numLikes}}
                             </div>

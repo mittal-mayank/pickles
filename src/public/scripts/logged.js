@@ -3,10 +3,7 @@ btnLogOut.on('click', () =>
     $.ajax({
         url: '/auth/logout',
         type: 'DELETE',
-        success: () => {
-            location.hash = '#';
-            location.reload();
-        },
+        success: () => (location.href = location.pathname),
     })
 );
 
@@ -32,10 +29,10 @@ function scrollPage() {
                                 <div class="text-muted div-post-comm" onclick="openCommunity(event);">
                                     ${post.belongsTo.name}
                                 </div>
-                                <div class="div-author" onclick="notyfInfo();">
+                                <div class="div-author" onclick="notyfFeatureComingSoon();">
                                     ${post.author.handle}
                                 </div>
-                                <div class="div-saves" onclick="notyfInfo();">
+                                <div class="div-saves" onclick="notyfFeatureComingSoon();">
                                     <i class="far fa-heart mr-5"></i>
                                     ${post.numLikes}
                                 </div>
@@ -120,10 +117,7 @@ btnAddPostSubmit.on('click', () => {
                             return notyf.error('Community does not exist!');
                         }
                     },
-                    success: () => {
-                        location.hash = '#';
-                        location.pathname = `/c/${inpPostCommVal}`;
-                    },
+                    success: () => (location.href = `/c/${inpPostCommVal}`),
                 });
             } else raiseValidityMsg(inpPostComm, 'Value cannot be empty!');
         } else raiseValidityMsg(inpPostTitle, 'Value cannot be empty!');
@@ -172,10 +166,7 @@ btnCreateCommSubmit.on('click', () => {
                             return notyf.error('Community already exists!');
                         }
                     },
-                    success: () => {
-                        location.hash = '#';
-                        location.pathname = `/c/${inpCommNameVal}`;
-                    },
+                    success: () => (location.href = `/c/${inpCommNameVal}`),
                 });
             } else
                 raiseValidityMsg(inpCommDescription, 'Value cannot be empty!');

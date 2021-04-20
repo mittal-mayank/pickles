@@ -1,3 +1,7 @@
+function notyfPleaseLogIn() {
+    notyf.error('Please log in!');
+}
+
 const contentLocation = location.pathname.split('/').pop();
 const contentPath = contentLocation
     ? `/api/communities/${contentLocation}/posts`
@@ -27,10 +31,10 @@ contentWrapper.onscroll = () => {
                                 <div class="text-muted div-post-comm" onclick="openCommunity(event);">
                                     ${post.belongsTo.name}
                                 </div>
-                                <div class="div-author" onclick="notyfInfo();">
+                                <div class="div-author" onclick="notyfFeatureComingSoon();">
                                     ${post.author.handle}
                                 </div>
-                                <div class="div-saves">
+                                <div class="div-saves" onclick="notyfPleaseLogIn();">
                                     <i class="far fa-heart mr-5"></i>
                                     ${post.numLikes}
                                 </div>
@@ -56,10 +60,11 @@ btnLogInSubmit.on('click', () => {
     const inpPasswordLogInVal = inpPasswordLogIn.val();
     if (/\S/.test(inpHandleLogInVal)) {
         if (/\S/.test(inpPasswordLogInVal)) {
-            $.post('/auth/login', formLogIn.serialize(), () => {
-                location.hash = '#';
-                location.reload();
-            }).fail((err) => {
+            $.post(
+                '/auth/login',
+                formLogIn.serialize(),
+                () => (location.href = location.pathname)
+            ).fail((err) => {
                 const status = err.status;
                 if (status === 400) {
                     return notyf.error('Invalid data!');
@@ -115,10 +120,7 @@ btnSignUpSubmit.on('click', () => {
                         return notyf.error('Account already exists!');
                     }
                 },
-                success: () => {
-                    location.hash = '#';
-                    location.reload();
-                },
+                success: () => (location.href = location.pathname),
             });
         } else raiseValidityMsg(inpPasswordSignUp, 'Value cannot be empty!');
     } else raiseValidityMsg(inpHandleSignUp, 'Value cannot be empty!');

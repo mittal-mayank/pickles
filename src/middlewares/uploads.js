@@ -13,23 +13,25 @@ cloudinary.config({
     api_secret: process.env.CLDNRY_API_SECRET,
 });
 
+const isCloud =
+    process.env.CLDNRY_NAME &&
+    process.env.CLDNRY_API_KEY &&
+    process.env.CLDNRY_API_SECRET;
+
 function saveImage(maxFileSize, fileName, folderName, localDest) {
     return multer({
-        storage:
-            process.env.CLDNRY_NAME &&
-            process.env.CLDNRY_API_KEY &&
-            process.env.CLDNRY_API_SECRET
-                ? new CloudinaryStorage({
-                      cloudinary: cloudinary,
-                      params: {
-                          folder: folderName,
-                      },
-                  })
-                : new multer.diskStorage({
-                      destination: function (req, file, cb) {
-                          cb(null, localDest);
-                      },
-                  }),
+        storage: isCloud
+            ? new CloudinaryStorage({
+                  cloudinary: cloudinary,
+                  params: {
+                      folder: folderName,
+                  },
+              })
+            : new multer.diskStorage({
+                  destination: function (req, file, cb) {
+                      cb(null, localDest);
+                  },
+              }),
         limits: { fileSize: maxFileSize, files: 1 },
         fileFilter: (req, file, callback) => {
             if (file.mimetype.split('/').shift() !== 'image')
@@ -48,7 +50,8 @@ function processAvatar(req, res, next) {
     )(req, res, (err) => {
         if (err) return res.status(400).send(err);
         if (req.body.avatar) return res.sendStatus(400);
-        if (req.file) req.body.avatar = req.file.path;
+        if (req.file)
+            req.body.avatar = isCloud ? req.file.path : `/${req.file.path}`;
         next();
     });
 }
@@ -62,7 +65,8 @@ function processPostFile(req, res, next) {
     )(req, res, (err) => {
         if (err) return res.status(400).send(err);
         if (req.body.file) return res.sendStatus(400);
-        if (req.file) req.body.file = req.file.path;
+        if (req.file)
+            req.body.file = isCloud ? req.file.path : `/${req.file.path}`;
         next();
     });
 }
@@ -76,7 +80,8 @@ function processBanner(req, res, next) {
     )(req, res, (err) => {
         if (err) return res.status(400).send(err);
         if (req.body.banner) return res.sendStatus(400);
-        if (req.file) req.body.banner = req.file.path;
+        if (req.file)
+            req.body.banner = isCloud ? req.file.path : `/${req.file.path}`;
         next();
     });
 }

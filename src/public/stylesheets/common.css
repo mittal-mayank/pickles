@@ -42,6 +42,7 @@
     color: #ffffff;
     position: absolute;
     top: 10px;
+    cursor: pointer;
 }
 
 .div-author {

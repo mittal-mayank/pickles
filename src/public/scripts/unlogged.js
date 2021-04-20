@@ -2,51 +2,6 @@ function notyfPleaseLogIn() {
     notyf.error('Please log in!');
 }
 
-const contentLocation = location.pathname.split('/').pop();
-const contentPath = contentLocation
-    ? `/api/communities/${contentLocation}/posts`
-    : '/api/posts/recent';
-let pageNo = 2;
-const contentWrapper = $('.content-wrapper')[0];
-const divContentBody = $('#div-content-body');
-contentWrapper.onscroll = () => {
-    if (
-        contentWrapper.scrollTop + contentWrapper.clientHeight >=
-        contentWrapper.scrollHeight
-    )
-        $.get(`${contentPath}?pageNo=${pageNo++}`, (posts) => {
-            for (post of posts)
-                divContentBody.append(
-                    $(
-                        `<div class="div-post-box">
-                            <div class="card p-0 m-5 div-post-card">
-                                <div class="div-post-image">
-                                    <a href="#modal-image">
-                                        <img src="${post.file}" class="img-fluid fill-image link-modal-img">
-                                    </a>
-                                </div>
-                                <div class="m-10">
-                                    <div class="font-weight-medium font-size-18 mb-5">
-                                        ${post.title}
-                                    </div>
-                                    <div class="text-muted div-post-comm" onclick="openCommunity(event);">
-                                        ${post.belongsTo.name}
-                                    </div>
-                                    <div class="div-author" onclick="notyfFeatureComingSoon();">
-                                        ${post.author.handle}
-                                    </div>
-                                    <div class="div-saves" onclick="notyfPleaseLogIn();">
-                                        <i class="far fa-heart mr-5"></i>
-                                        ${post.numLikes}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`
-                    )
-                );
-        }).fail(() => (contentWrapper.onscroll = null));
-};
-
 const inpHandleLogIn = $('#inp-handle-login');
 const inpPasswordLogIn = $('#inp-password-login');
 const btnLogInSubmit = $('#btn-login-submit');

@@ -128,7 +128,7 @@ const divContentBody = $('#div-content-body');
 function scrollPage() {
     if (
         contentWrapper.scrollTop + contentWrapper.clientHeight >=
-        contentWrapper.scrollHeight
+        contentWrapper.scrollHeight - 300
     )
         $.get(`${contentPath}?pageNo=${pageNo++}`, (posts) => {
             for (post of posts) divContentBody.append(createPost(post));

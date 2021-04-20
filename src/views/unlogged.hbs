@@ -62,7 +62,7 @@
                 <form id="form-signup" enctype="multipart/form-data">
                     <div class="text-center mb-10">
                         <div class="custom-file">
-                            <input name="avatar" type="file" id="inp-avatar-signup" accept=".jpg,.png,.gif"
+                            <input name="avatar" type="file" id="inp-avatar-signup" accept=".jpg,.jpeg,.png,.gif"
                                 class="d-none">
                             <label for="inp-avatar-signup" class="bg-transparent p-0 shadow-none border-0 w-150 h-150">
                                 <img id="img-avatar-signup" src="/assets/images/defaultAvatar.png"
@@ -209,7 +209,7 @@
                 {{#each popularCommunities}}
                 <a href="/c/{{this.name}}" class="sidebar-link sidebar-link-with-icon">
                     <span class="w-25 h-25 mr-10">
-                        <img src="/uploads/images/banners/{{this.banner}}" class="img-fluid fill-image align-middle">
+                        <img src="{{this.banner}}" class="img-fluid fill-image align-middle">
                     </span>
                     {{this.name}}
                 </a>
@@ -234,8 +234,7 @@
                         <div class="row">
                             <div class="col-12 col-sm-3 col-lg-2 h-200" id="div-cntr-comm-banner">
                                 <a href="#modal-image" class="link-modal-image">
-                                    <img src="/uploads/images/banners/{{community.banner}}" class="img-fluid fill-image"
-                                        id="img-comm-banner">
+                                    <img src="{{community.banner}}" class="img-fluid fill-image" id="img-comm-banner">
                                 </a>
                             </div>
                             <div class="col-12 col-sm-9 col-lg-10 d-flex align-items-center" id="div-comm-content">
@@ -265,7 +264,7 @@
                     <div class="card p-0 m-5 div-post-card">
                         <div class="div-post-image">
                             <a href="#modal-image" class="link-modal-image">
-                                <img src="/uploads/images/postFiles/{{this.file}}" class="img-fluid fill-image">
+                                <img src="{{this.file}}" class="img-fluid fill-image">
                             </a>
                         </div>
                         <div class="m-10">
@@ -291,7 +290,7 @@
                     <div class="card p-0 m-5 div-post-card">
                         <div class="div-post-image">
                             <a href="#modal-image" class="link-modal-image">
-                                <img src="/uploads/images/postFiles/{{this.file}}" class="img-fluid fill-image">
+                                <img src="{{this.file}}" class="img-fluid fill-image">
                             </a>
                         </div>
                         <div class="m-10">

@@ -22,7 +22,7 @@ function scrollPage() {
                         <div class="card p-0 m-5 div-post-card">
                             <div class="div-post-image">
                                 <a href="#modal-image" class="link-modal-image">
-                                    <img src="/uploads/images/postFiles/${post.file}" class="img-fluid fill-image">
+                                    <img src="${post.file}" class="img-fluid fill-image">
                                 </a>
                             </div>
                             <div class="m-10">

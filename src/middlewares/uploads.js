@@ -1,18 +1,35 @@
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const multer = require('multer');
 const { MulterError } = require('multer');
 
-const AVATAR_DEST = './uploads/images/avatars';
 const MAX_AVATAR_SIZE = 1024 * 512;
-
-const POST_FILE_DEST = './uploads/images/postFiles';
 const MAX_POST_FILE_SIZE = 1024 * 2048;
-
-const BANNER_DEST = './uploads/images/banners';
 const MAX_BANNER_SIZE = 1024 * 2048;
 
-function saveImage(destination, maxFileSize, fileName) {
+cloudinary.config({
+    cloud_name: process.env.CLDNRY_NAME,
+    api_key: process.env.CLDNRY_API_KEY,
+    api_secret: process.env.CLDNRY_API_SECRET,
+});
+
+function saveImage(maxFileSize, fileName, folderName, localDest) {
     return multer({
-        dest: destination,
+        storage:
+            process.env.CLDNRY_NAME &&
+            process.env.CLDNRY_API_KEY &&
+            process.env.CLDNRY_API_SECRET
+                ? new CloudinaryStorage({
+                      cloudinary: cloudinary,
+                      params: {
+                          folder: folderName,
+                      },
+                  })
+                : new multer.diskStorage({
+                      destination: function (req, file, cb) {
+                          cb(null, localDest);
+                      },
+                  }),
         limits: { fileSize: maxFileSize, files: 1 },
         fileFilter: (req, file, callback) => {
             if (file.mimetype.split('/').shift() !== 'image')
@@ -23,28 +40,43 @@ function saveImage(destination, maxFileSize, fileName) {
 }
 
 function processAvatar(req, res, next) {
-    saveImage(AVATAR_DEST, MAX_AVATAR_SIZE, 'avatar')(req, res, (err) => {
+    saveImage(
+        MAX_AVATAR_SIZE,
+        'avatar',
+        'avatars',
+        './uploads/images/avatars'
+    )(req, res, (err) => {
         if (err) return res.status(400).send(err);
         if (req.body.avatar) return res.sendStatus(400);
-        if (req.file) req.body.avatar = req.file.filename;
+        if (req.file) req.body.avatar = req.file.path;
         next();
     });
 }
 
 function processPostFile(req, res, next) {
-    saveImage(POST_FILE_DEST, MAX_POST_FILE_SIZE, 'file')(req, res, (err) => {
+    saveImage(
+        MAX_POST_FILE_SIZE,
+        'file',
+        'postFiles',
+        './uploads/images/postFiles'
+    )(req, res, (err) => {
         if (err) return res.status(400).send(err);
         if (req.body.file) return res.sendStatus(400);
-        if (req.file) req.body.file = req.file.filename;
+        if (req.file) req.body.file = req.file.path;
         next();
     });
 }
 
 function processBanner(req, res, next) {
-    saveImage(BANNER_DEST, MAX_BANNER_SIZE, 'banner')(req, res, (err) => {
+    saveImage(
+        MAX_BANNER_SIZE,
+        'banner',
+        'banners',
+        './uploads/images/banners'
+    )(req, res, (err) => {
         if (err) return res.status(400).send(err);
         if (req.body.banner) return res.sendStatus(400);
-        if (req.file) req.body.banner = req.file.filename;
+        if (req.file) req.body.banner = req.file.path;
         next();
     });
 }

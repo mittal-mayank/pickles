@@ -15,38 +15,35 @@ contentWrapper.onscroll = () => {
         contentWrapper.scrollHeight
     )
         $.get(`${contentPath}?pageNo=${pageNo++}`, (posts) => {
-            for (post of posts) {
-                const divPost = $(
-                    `<div class="div-post-box">
-                        <div class="card p-0 m-5 div-post-card">
-                            <div class="div-post-image">
-                                <a href="#modal-image" class="link-modal-image">
-                                    <img src="${post.file}" class="img-fluid fill-image">
-                                </a>
+            for (post of posts)
+                divContentBody.append(
+                    $(
+                        `<div class="div-post-box">
+                            <div class="card p-0 m-5 div-post-card">
+                                <div class="div-post-image">
+                                    <a href="#modal-image">
+                                        <img src="${post.file}" class="img-fluid fill-image link-modal-img">
+                                    </a>
+                                </div>
+                                <div class="m-10">
+                                    <div class="font-weight-medium font-size-18 mb-5">
+                                        ${post.title}
+                                    </div>
+                                    <div class="text-muted div-post-comm" onclick="openCommunity(event);">
+                                        ${post.belongsTo.name}
+                                    </div>
+                                    <div class="div-author" onclick="notyfFeatureComingSoon();">
+                                        ${post.author.handle}
+                                    </div>
+                                    <div class="div-saves" onclick="notyfPleaseLogIn();">
+                                        <i class="far fa-heart mr-5"></i>
+                                        ${post.numLikes}
+                                    </div>
+                                </div>
                             </div>
-                            <div class="m-10">
-                                <div class="font-weight-medium font-size-18 mb-5">
-                                    ${post.title}
-                                </div>
-                                <div class="text-muted div-post-comm" onclick="openCommunity(event);">
-                                    ${post.belongsTo.name}
-                                </div>
-                                <div class="div-author" onclick="notyfFeatureComingSoon();">
-                                    ${post.author.handle}
-                                </div>
-                                <div class="div-saves" onclick="notyfPleaseLogIn();">
-                                    <i class="far fa-heart mr-5"></i>
-                                    ${post.numLikes}
-                                </div>
-                            </div>
-                        </div>
-                    </div>`
+                        </div>`
+                    )
                 );
-                divPost
-                    .find('.link-modal-image')
-                    .on('click', () => imgModal.attr('src', post.file));
-                divContentBody.append(divPost);
-            }
         }).fail(() => (contentWrapper.onscroll = null));
 };
 

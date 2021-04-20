@@ -39,13 +39,8 @@ btnTheme.on('click', () => {
 });
 
 const imgModal = $('#img-modal');
-const linkModalImage = $('.link-modal-image');
-linkModalImage.on('click', (event) => {
-    const targetImage =
-        event.target.tagName === 'IMG'
-            ? event.target
-            : event.target.querySelector('img');
-    imgModal.attr('src', targetImage.src);
+$('body').on('click', '.link-modal-img', (event) => {
+    imgModal.attr('src', event.target.src);
 });
 
 const inpSearch = $('#inp-search');

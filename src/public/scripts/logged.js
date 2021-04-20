@@ -1,3 +1,7 @@
+let contentPath = contentLocation
+    ? `/api/communities/${contentLocation}/posts`
+    : '/api/users/communityFeed';
+
 const btnLogOut = $('#btn-logout');
 btnLogOut.on('click', () =>
     $.ajax({

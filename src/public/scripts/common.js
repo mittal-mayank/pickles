@@ -122,9 +122,6 @@ function createPost(post) {
 }
 
 const contentLocation = location.pathname.split('/').pop();
-let contentPath = contentLocation
-    ? `/api/communities/${contentLocation}/posts`
-    : '/api/users/communityFeed';
 let pageNo = 2;
 const contentWrapper = $('.content-wrapper')[0];
 const divContentBody = $('#div-content-body');

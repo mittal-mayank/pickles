@@ -1,3 +1,7 @@
+let contentPath = contentLocation
+    ? `/api/communities/${contentLocation}/posts`
+    : '/api/posts/recent';
+
 function notyfPleaseLogIn() {
     notyf.error('Please log in!');
 }

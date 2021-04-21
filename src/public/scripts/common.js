@@ -138,13 +138,19 @@ const contentLocation = location.pathname.split('/').pop();
 let pageNo = 2;
 const contentWrapper = $('.content-wrapper')[0];
 const divContentBody = $('#div-content-body');
+let loadNewPage = true;
 function scrollPage() {
     if (
+        loadNewPage &&
         contentWrapper.scrollTop + contentWrapper.clientHeight >=
-        contentWrapper.scrollHeight
-    )
+            contentWrapper.scrollHeight - 400
+    ) {
+        loadNewPage = false;
         $.get(`${contentPath}?pageNo=${pageNo++}`, (posts) => {
             for (post of posts) divContentBody.append(createPost(post));
+            loadNewPage = true;
         }).fail(() => (contentWrapper.onscroll = null));
+    }
 }
+
 contentWrapper.onscroll = scrollPage;

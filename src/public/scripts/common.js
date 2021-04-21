@@ -1,3 +1,24 @@
+const imgLoading = $('#img-loading');
+const bodyClassList = document.body.classList;
+
+function setDarkMode() {
+    bodyClassList.add('dark-mode');
+    imgLoading.attr('src', '/assets/images/loadingDark.gif');
+    location.hash = 'modal-loading';
+}
+function setLightMode() {
+    imgLoading.attr('src', '/assets/images/loadingLight.gif');
+    location.hash = 'modal-loading';
+}
+
+if (bodyClassList.contains('manual-dark')) setDarkMode();
+else if (bodyClassList.contains('manual-light')) setLightMode();
+else {
+    const osThemeQuery = matchMedia('(prefers-color-scheme: dark)');
+    if (osThemeQuery.matches) setDarkMode();
+    else setLightMode();
+}
+
 const notyf = new Notyf({
     duration: 2000,
     position: { x: 'right', y: 'top' },
@@ -21,15 +42,7 @@ function openCommunity(event) {
     location.href = `/c/${event.target.innerText}`;
 }
 
-const bodyClassList = document.body.classList;
-if (bodyClassList.contains('manual-dark')) bodyClassList.add('dark-mode');
-else if (!bodyClassList.contains('manual-light')) {
-    const osThemeQuery = matchMedia('(prefers-color-scheme: dark)');
-    if (osThemeQuery.matches) bodyClassList.add('dark-mode');
-}
-
-const btnTheme = $('#btn-theme');
-btnTheme.on('click', () => {
+$('#btn-theme').on('click', () => {
     const theme = document.body.classList.contains('dark-mode');
     $.ajax({
         url: '/settings/theme',

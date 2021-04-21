@@ -39,9 +39,7 @@ btnLogInSubmit.on('click', () => {
 createSubmitTrigger(inpHandleLogIn, btnLogInSubmit);
 createSubmitTrigger(inpPasswordLogIn, btnLogInSubmit);
 
-const inpAvatarSignUp = $('#inp-avatar-signup');
-const imgAvatarSignUp = $('#img-avatar-signup');
-addFileDisplay(inpAvatarSignUp, imgAvatarSignUp);
+addFileDisplay($('#inp-avatar-signup'), $('#img-avatar-signup'));
 
 const inpHandleSignUp = $('#inp-handle-signup');
 const inpPasswordSignUp = $('#inp-password-signup');
@@ -84,3 +82,5 @@ btnSignUpSubmit.on('click', () => {
 
 createSubmitTrigger(inpHandleSignUp, btnSignUpSubmit);
 createSubmitTrigger(inpPasswordSignUp, btnSignUpSubmit);
+
+location.href = '#';

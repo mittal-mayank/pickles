@@ -2,8 +2,7 @@ let contentPath = contentLocation
     ? `/api/communities/${contentLocation}/posts`
     : '/api/users/communityFeed';
 
-const btnLogOut = $('#btn-logout');
-btnLogOut.on('click', () =>
+$('#btn-logout').on('click', () =>
     $.ajax({
         url: '/auth/logout',
         type: 'DELETE',
@@ -24,13 +23,12 @@ function setContent(event, path) {
     contentWrapper.onscroll = scrollPage;
 }
 
-const btnFollowingFeed = $('.btn-following-feed');
-const btnRecentPosts = $('.btn-recent-posts');
-
-btnFollowingFeed.on('click', (event) =>
+$('.btn-following-feed').on('click', (event) =>
     setContent(event, '/api/users/followingFeed')
 );
-btnRecentPosts.on('click', (event) => setContent(event, '/api/posts/recent'));
+$('.btn-recent-posts').on('click', (event) =>
+    setContent(event, '/api/posts/recent')
+);
 
 const inpPostFile = $('#inp-post-file');
 const imgPostFile = $('#img-post-file');
@@ -131,14 +129,13 @@ btnCreateCommSubmit.on('click', () => {
 createSubmitTrigger(inpCommName, btnCreateCommSubmit);
 createSubmitTrigger(inpCommDescription, btnCreateCommSubmit);
 
-const btnFollowComm = $('#btn-follow-comm');
 const iconFollowComm = $('#icon-follow-comm');
 const spanFollowComm = $('#span-follow-comm');
 const divFollowedComm = $('#div-followed-comm');
 const imgCommBannerSrc = $('#img-comm-banner').attr('src');
 const communityName = decodeURIComponent(location.pathname.split('/').pop());
 
-btnFollowComm.on('click', () => {
+$('#btn-follow-comm').on('click', () => {
     $.ajax({
         url: '/api/users/followedCommunities',
         type: 'PATCH',
@@ -169,3 +166,5 @@ btnFollowComm.on('click', () => {
         },
     });
 });
+
+location.href = '#';

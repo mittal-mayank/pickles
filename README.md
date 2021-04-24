@@ -4,19 +4,21 @@ Let your mind speak through images!
 
 Pickles is an image sharing website that allows users to add posts inside communities of like minded people.
 
-It's completely responsive dual theme design provides amazing viewing experience across all devices! Add posts, create communties, follow communities, view posts curated for you and much more!
+It's completely responsive dual theme design provides amazing viewing experience across all devices!
+
+Add posts, create communties, follow communities, view posts curated for you and much more!
 
 <div align="center">
-    <img src="./screenshots/1.png" width="50%">
-    <img src="./screenshots/2.png" width="50%">
-    <img src="./screenshots/3.png" width="50%">
-    <img src="./screenshots/4.png" width="50%">
-    <img src="./screenshots/5.png" width="50%">
-    <img src="./screenshots/6.png" width="50%">
-    <img src="./screenshots/7.png" width="50%">
+    <img src="./screenshots/1.png" width="49%">
+    <img src="./screenshots/2.png" width="49%">
+    <img src="./screenshots/3.png" width="49%">
+    <img src="./screenshots/4.png" width="49%">
+    <img src="./screenshots/5.png" width="49%">
+    <img src="./screenshots/6.png" width="49%">
+    <img src="./screenshots/7.png" width="49%">
 </div>
 
-## Development
+## Tools Used
 
 The front-end of the website has been made using the following tools and libraries,
 
@@ -32,6 +34,8 @@ The back-end has been made using,
 -   [Multer](https://www.npmjs.com/package/multer) and [Cloudinary](https://cloudinary.com/) for managing file uploads
 -   [Bcrypt](https://www.npmjs.com/package/bcrypt) for encypting passwords
 -   [Express Session](https://www.npmjs.com/package/express-session) and [Connect Mongo](https://www.npmjs.com/package/connect-mongo) for maintaining session storage on MongoDB
+
+## Running Locally
 
 The website has been hosted using Heroku. To run website on local server,
 
@@ -62,3 +66,5 @@ The website has been hosted using Heroku. To run website on local server,
     ```bash
     npm start
     ```
+
+The application is now accessible at `http://localhost:3000`

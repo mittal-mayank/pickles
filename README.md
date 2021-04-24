@@ -6,33 +6,14 @@ Pickles is an image sharing website that allows users to add posts inside commun
 
 It's completely responsive dual theme design provides amazing viewing experience across all devices! Add posts, create communties, follow communities, view posts curated for you and much more!
 
-<style>
-    .div-ss {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .img-ss {
-        width: 45%;
-        margin: 5px;
-    }
-
-    @media (max-width: 700px) {
-        .img-ss {
-            width: 100%;
-        }
-    }
-</style>
-
-<div class="div-ss">
-    <img class="img-ss" src="./screenshots/1.png" width="45%">
-    <img class="img-ss" src="./screenshots/2.png" width="45%">
-    <img class="img-ss" src="./screenshots/3.png" width="45%">
-    <img class="img-ss" src="./screenshots/4.png" width="45%">
-    <img class="img-ss" src="./screenshots/5.png" width="45%">
-    <img class="img-ss" src="./screenshots/6.png" width="45%">
-    <img class="img-ss" src="./screenshots/7.png" width="45%">
+<div align="center">
+    <img src="./screenshots/1.png" width="50%">
+    <img src="./screenshots/2.png" width="50%">
+    <img src="./screenshots/3.png" width="50%">
+    <img src="./screenshots/4.png" width="50%">
+    <img src="./screenshots/5.png" width="50%">
+    <img src="./screenshots/6.png" width="50%">
+    <img src="./screenshots/7.png" width="50%">
 </div>
 
 ## Development

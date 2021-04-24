@@ -2,20 +2,18 @@
 
 Let your mind speak through images!
 
-Pickles is an image sharing website that allows users to add posts inside communities of like minded people.
+[PICKLES](http://pic-kles.herokuapp.com) is an image sharing website that allows users to add posts inside communities of like minded people.
 
-It's completely responsive dual theme design provides amazing viewing experience across all devices!
-
-Add posts, create communties, follow communities, view posts curated for you and much more!
+It's completely responsive dual theme design provides amazing viewing experience across all devices. You can add posts, create communties, follow communities, view posts curated for you and much more!
 
 <div align="center">
-    <img src="./screenshots/1.png" width="49%">
-    <img src="./screenshots/2.png" width="49%">
-    <img src="./screenshots/3.png" width="49%">
-    <img src="./screenshots/4.png" width="49%">
-    <img src="./screenshots/5.png" width="49%">
-    <img src="./screenshots/6.png" width="49%">
-    <img src="./screenshots/7.png" width="49%">
+    <img src="./screenshots/1.png" width="45%">
+    <img src="./screenshots/6.png" width="45%">
+    <img src="./screenshots/2.png" width="45%">
+    <img src="./screenshots/5.png" width="45%">
+    <img src="./screenshots/7.png" width="45%">
+    <img src="./screenshots/4.png" width="45%">
+    <img src="./screenshots/3.png" width="45%">
 </div>
 
 ## Tools Used

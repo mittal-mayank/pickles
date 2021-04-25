@@ -1,5 +1,5 @@
 (function checkScriptLoaded() {
-    if (scriptLoaded) {
+    if (window.commonLoaded) {
         contentPath = contentLocation
             ? `/api/communities/${contentLocation}/posts`
             : '/api/users/communityFeed';

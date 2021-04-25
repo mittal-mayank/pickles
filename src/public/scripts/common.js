@@ -155,4 +155,4 @@ function scrollPage() {
 }
 contentWrapper.onscroll = scrollPage;
 
-const scriptLoaded = true;
+window.commonLoaded = true;

@@ -135,7 +135,6 @@ function createPost(post) {
 }
 
 const contentLocation = location.pathname.split('/').pop();
-let contentPath = null;
 let pageNo = 2;
 const contentWrapper = $('.content-wrapper')[0];
 const divContentBody = $('#div-content-body');
@@ -155,4 +154,5 @@ function scrollPage() {
 }
 contentWrapper.onscroll = scrollPage;
 
-window.commonLoaded = true;
+const childScript = $('#script-main').data().childScript;
+$.getScript(`/static/scripts/${childScript}`);

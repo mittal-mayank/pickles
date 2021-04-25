@@ -31,6 +31,138 @@
 </head>
 
 <body class="with-custom-webkit-scrollbars with-custom-css-scrollbars {{theme}}">
+    <div class="modal" id="add-post" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <a href="#" class="close">
+                    <span>&times;</span>
+                </a>
+                <h5 class="modal-title">Add Post</h5>
+                <form id="form-add-post" enctype="multipart/form-data">
+                    <div class="text-center mb-10">
+                        <div class="custom-file">
+                            <input name="file" type="file" id="inp-post-file" accept=".jpg,.jpeg,.png,.gif"
+                                class="d-none">
+                            <label for="inp-post-file" class="bg-transparent p-0 shadow-none border-0 w-full h-250">
+                                <img id="img-post-file" src="/assets/images/emptyFile.gif" class="img-fluid fill-image">
+                            </label>
+                        </div>
+                    </div>
+                    <label for="inp-post-title" class="required">Title</label>
+                    <div class="form-group">
+                        <input name="title" type="text" id="inp-post-title" class="form-control"
+                            placeholder="Title of the post">
+                    </div>
+                    <label for="inp-post-comm" class="required">Community</label>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">#</span>
+                        </div>
+                        <input name="communityName" type="text" id="inp-post-comm" class="form-control"
+                            placeholder="Community to post into">
+                    </div>
+                    <button class="btn btn-block" type="button" id="btn-add-post-submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="create-comm" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <a href="#" class="close">
+                    <span>&times;</span>
+                </a>
+                <h5 class="modal-title">Create Community</h5>
+                <form id="form-create-comm" enctype="multipart/form-data">
+                    <div class="text-center mb-10">
+                        <div class="custom-file">
+                            <input name="banner" type="file" id="inp-comm-banner" accept=".jpg,.jpeg,.png,.gif"
+                                class="d-none">
+                            <label for="inp-comm-banner" class="bg-transparent p-0 shadow-none border-0 w-full h-200">
+                                <img id="img-create-comm-banner" src="/assets/images/emptyFile.gif"
+                                    class="img-fluid fill-image">
+                            </label>
+                        </div>
+                    </div>
+                    <label for="inp-comm-name" class="required">Name</label>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">#</span>
+                        </div>
+                        <input name="name" type="text" id="inp-comm-name" class="form-control"
+                            placeholder="Name of your community">
+                    </div>
+                    <div class="form-group">
+                        <label for="inp-comm-description" class="required">Description</label>
+                        <textarea name="description" id="inp-comm-description" class="form-control"
+                            placeholder="A short description of your community"></textarea>
+                    </div>
+                    <button class="btn btn-block" type="button" id="btn-create-comm-submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-image" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content modal-content-media w-500">
+                <a href="#" class="close">
+                    <span>&times;</span>
+                </a>
+                <img src="#" class="img-fluid" id="img-modal">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-loading" tabindex="-1" data-overlay-dismissal-disabled="true"
+        data-esc-dismissal-disabled="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-content-media w-500">
+                <img src="#" class="img-fluid" id="img-loading">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="about-me" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <a href="#" class="close">
+                    <span>&times;</span>
+                </a>
+                <h5 class="modal-title mb-10">About Me</h5>
+                <div class="mx-auto mb-20 w-200 h-200">
+                    <img src="/assets/images/aboutMe.png" class="img-fluid rounded-circle fill-image">
+                </div>
+                <div class="mb-20">
+                    I am a Software Engineering undergraduate student at Delhi Technological University.
+                    I love coding and building things!
+                </div>
+                <div>
+                    <a href="https://github.com/mittal-mayank" target="_blank" class="link-no-style">
+                        <button class="btn mr-10 mb-10" type="button" id="btn-github">
+                            <i class="fab fa-github font-size-18"></i>
+                        </button>
+                    </a>
+                    <label for="btn-github">
+                        GitHub
+                    </label>
+                </div>
+                <div>
+                    <a href="https://www.linkedin.com/in/mayank-mittal-6994741ba/" target="_blank"
+                        class="link-no-style">
+                        <button class="btn mr-10" type="button" id="btn-linkedin">
+                            <i class="fab fa-linkedin-in font-size-18"></i>
+                        </button>
+                    </a>
+                    <label for="btn-linkedin">
+                        LinkedIn
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="page-wrapper with-navbar with-sidebar with-transitions" data-sidebar-type="overlayed-sm-and-down">
         <nav class="navbar">
             <div class="navbar-content">
@@ -93,140 +225,6 @@
                 </div>
             </div>
         </nav>
-
-        <div class="modal" id="modal-image" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content modal-content-media w-500">
-                    <a href="#" class="close">
-                        <span>&times;</span>
-                    </a>
-                    <img src="#" class="img-fluid" id="img-modal">
-                </div>
-            </div>
-        </div>
-
-        <div class="modal" id="modal-loading" tabindex="-1" data-overlay-dismissal-disabled="true"
-            data-esc-dismissal-disabled="true">
-            <div class="modal-dialog">
-                <div class="modal-content modal-content-media w-500">
-                    <img src="#" class="img-fluid" id="img-loading">
-                </div>
-            </div>
-        </div>
-
-        <div class="modal" id="about-me" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <a href="#" class="close">
-                        <span>&times;</span>
-                    </a>
-                    <h5 class="modal-title mb-10">About Me</h5>
-                    <div class="mx-auto mb-20 w-200 h-200">
-                        <img src="/assets/images/aboutMe.png" class="img-fluid rounded-circle fill-image">
-                    </div>
-                    <div class="mb-20">
-                        I am a Software Engineering undergraduate student at Delhi Technological University.
-                        I love coding and building things!
-                    </div>
-                    <div>
-                        <a href="https://github.com/mittal-mayank" target="_blank" class="link-no-style">
-                            <button class="btn mr-10 mb-10" type="button" id="btn-github">
-                                <i class="fab fa-github font-size-18"></i>
-                            </button>
-                        </a>
-                        <label for="btn-github">
-                            GitHub
-                        </label>
-                    </div>
-                    <div>
-                        <a href="https://www.linkedin.com/in/mayank-mittal-6994741ba/" target="_blank"
-                            class="link-no-style">
-                            <button class="btn mr-10" type="button" id="btn-linkedin">
-                                <i class="fab fa-linkedin-in font-size-18"></i>
-                            </button>
-                        </a>
-                        <label for="btn-linkedin">
-                            LinkedIn
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal" id="add-post" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <a href="#" class="close">
-                        <span>&times;</span>
-                    </a>
-                    <h5 class="modal-title">Add Post</h5>
-                    <form id="form-add-post" enctype="multipart/form-data">
-                        <div class="text-center mb-10">
-                            <div class="custom-file">
-                                <input name="file" type="file" id="inp-post-file" accept=".jpg,.jpeg,.png,.gif"
-                                    class="d-none">
-                                <label for="inp-post-file" class="bg-transparent p-0 shadow-none border-0 w-full h-250">
-                                    <img id="img-post-file" src="/assets/images/emptyFile.gif"
-                                        class="img-fluid fill-image">
-                                </label>
-                            </div>
-                        </div>
-                        <label for="inp-post-title">Title</label>
-                        <div class="form-group">
-                            <input name="title" type="text" id="inp-post-title" class="form-control"
-                                placeholder="Title of the post">
-                        </div>
-                        <label for="inp-post-comm">Community</label>
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">#</span>
-                            </div>
-                            <input name="communityName" type="text" id="inp-post-comm" class="form-control"
-                                placeholder="Community to post into">
-                        </div>
-                        <button class="btn btn-block" type="button" id="btn-add-post-submit">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal" id="create-comm" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <a href="#" class="close">
-                        <span>&times;</span>
-                    </a>
-                    <h5 class="modal-title">Create Community</h5>
-                    <form id="form-create-comm" enctype="multipart/form-data">
-                        <div class="text-center mb-10">
-                            <div class="custom-file">
-                                <input name="banner" type="file" id="inp-comm-banner" accept=".jpg,.jpeg,.png,.gif"
-                                    class="d-none">
-                                <label for="inp-comm-banner"
-                                    class="bg-transparent p-0 shadow-none border-0 w-full h-200">
-                                    <img id="img-create-comm-banner" src="/assets/images/emptyFile.gif"
-                                        class="img-fluid fill-image">
-                                </label>
-                            </div>
-                        </div>
-                        <label for="inp-comm-name">Name</label>
-                        <div class="form-group input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">#</span>
-                            </div>
-                            <input name="name" type="text" id="inp-comm-name" class="form-control"
-                                placeholder="Name of your community">
-                        </div>
-                        <div class="form-group">
-                            <label for="inp-comm-description">Description</label>
-                            <textarea name="description" id="inp-comm-description" class="form-control"
-                                placeholder="A short description of your community"></textarea>
-                        </div>
-                        <button class="btn btn-block" type="button" id="btn-create-comm-submit">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
 
         <div class="sidebar-overlay" onclick="halfmoon.toggleSidebar();">
         </div>

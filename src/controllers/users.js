@@ -60,9 +60,7 @@ async function getCommunityFeed(req, res) {
     const user = await User.findOne({ handle })
         .select('createdCommunities followedCommunities')
         .exec();
-
     const communityFeed = [];
-
     await populateCommunityFeed(
         user.createdCommunities,
         communityFeed,
@@ -74,7 +72,6 @@ async function getCommunityFeed(req, res) {
         constraint.pageNo
     );
     communityFeed.sort(comparePosts);
-
     if (!communityFeed.length) return res.sendStatus(404);
     res.status(200).json(communityFeed);
 }

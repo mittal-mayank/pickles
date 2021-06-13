@@ -101,7 +101,6 @@ async function renderLogged(req, res) {
             options: { sort: '-createdAt' },
         })
         .exec();
-
     const communityFeed = [];
     let community = null;
     let hasFollowedComm = false;
@@ -138,14 +137,12 @@ async function renderLogged(req, res) {
                 }
         if (!community) return res.sendStatus(404);
     }
-
     const popularCommunities = await Community.find()
         .select('name banner')
         .sort('-numUsers')
         .limit(NUM_SHOWN_COMM)
         .exec();
     const theme = req.session.theme;
-
     res.render('logged', {
         user,
         communityFeed,

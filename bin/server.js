@@ -10,9 +10,7 @@ mongoose.connection
 
         const PORT = process.env.PORT || 3000;
 
-        app.listen(PORT, () =>
-            console.log(`Server started at http://localhost:${PORT}`)
-        );
+        app.listen(PORT, () => console.log(`Server started at port ${PORT}`));
     })
     .on('disconnect', () => console.log('Database disconnected'))
     .on('error', console.error);

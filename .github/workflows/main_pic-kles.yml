@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'pic-kles'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_40D808EECDCB4BA0B728F568AD264D49 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B6CF27B6321A43D7B7F2617F3A460445 }}
           package: .

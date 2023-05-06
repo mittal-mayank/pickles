@@ -1,12 +1,12 @@
 {
     "name": "pickles",
     "version": "1.0.0",
-    "description": "An image-sharing website that allows users to interact inside different communities",
+    "description": "",
     "main": "index.js",
     "scripts": {
         "start": "node ./bin/server.js"
     },
-    "author": "mittal-mayank",
+    "author": "",
     "license": "ISC",
     "dependencies": {
         "bcrypt": "^5.0.1",
@@ -20,6 +20,6 @@
         "multer-storage-cloudinary": "^4.0.0"
     },
     "engines": {
-        "node": "18.11.0"
+        "node": "14.16.1"
     }
 }
